@@ -89,7 +89,11 @@ return (function () {
                 sock.binaryType = htmx.config.wsBinaryType;
                 return sock;
             },
-            version: "1.9.10"
+            version: "1.9.10",
+            elements: new Map(),
+            addSelectors: addSelectors,
+            removeSelectors: removeSelectors,
+            addSelector: addSelector
         };
 
         /** @type {import("./htmx").HtmxInternalApi} */
@@ -659,9 +663,25 @@ return (function () {
 
         function querySelectorExt(eltOrSelector, selector) {
             if (selector) {
-                return querySelectorAllExt(eltOrSelector, selector)[0];
+                const el = htmx.elements.get(selector);
+                if (el) {
+                    return el
+                }
+                const l = querySelectorAllExt(eltOrSelector, selector)[0];
+                if (l) {
+                    htmx.elements.set(selector, l);
+                }
+                return l;
             } else {
-                return querySelectorAllExt(getDocument().body, eltOrSelector)[0];
+                const el = htmx.elements.get(selector);
+                if (el) {
+                    return el
+                }
+                const l = querySelectorAllExt(getDocument().body, eltOrSelector)[0];
+                if (l) {
+                    htmx.elements.set(selector, l);
+                }
+                return l;
             }
         }
 
@@ -3858,6 +3878,40 @@ return (function () {
                 htmx.config = mergeObjects(htmx.config , metaConfig)
             }
         }
+
+       /**
+        * @param filtered {String[]} 
+        * @param selectors {String[]} 
+        **/
+        function addSelectors(selectors, filtered) {
+          removeSelectors(filtered);
+          selectors.forEach((selector) => {
+            /** @type {HTMLElement} **/
+            const elem = document.querySelector(selector);
+            if (elem) {
+              htmx.elements.set(selector, elem);
+            }
+          });
+        }
+
+        /**
+        * @param filtered {String[]} 
+        **/
+        function removeSelectors(filtered) {
+          for (const [key, value] of htmx.elements.entries()) {
+            if (!filtered.includes(key)) {
+              htmx.elements.delete(key);
+            }
+          }
+        }
+
+        /**
+        * @param selector {string} 
+        * @param elem {HTMLElement} 
+        **/
+        function addSelector(selector, elem) {
+            htmx.elements.set(selector, elem)
+        }        
 
         // initialize the document
         ready(function () {

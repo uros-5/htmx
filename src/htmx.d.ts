@@ -448,3 +448,7 @@ export interface HtmxExtension {
     handleSwap?: (swapStyle: any, target: any, fragment: any, settleInfo: any) => any;
     encodeParameters?: (xhr: XMLHttpRequest, parameters: any, elt: any) => any;
 }
+
+export function addSelectors(filtered: string[], selectors: string[]);
+export function removeSelectors(filtered: string[], selectors: string[]);
+export function addSelector(selector: string, element: HTMLElement);
