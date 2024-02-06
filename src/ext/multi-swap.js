@@ -1,6 +1,6 @@
 (function () {
 
-    /** @type {import("../htmx").HtmxInternalApi} */
+    /** @type {import("../htmx").*} */
     var api;
 
     htmx.defineExtension('multi-swap', {

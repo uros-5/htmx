@@ -92,7 +92,7 @@ return (function () {
             version: "1.9.10"
         };
 
-        /** @type {import("./htmx").HtmxInternalApi} */
+        /** @type {import("./htmx").*} */
         var internalAPI = {
             addTriggerHandler: addTriggerHandler,
             bodyContains: bodyContains,

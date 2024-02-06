@@ -21,13 +21,13 @@
     if (!attr) {
       return;
     }
-    let parts = attr.split(",");
+    let parts = attr.split(";;");
     for (let i = 0; i < parts.length; i++) {
       const part = parts[i].split("=");
       if (part.length != 2) { continue }
-      const a = part[0];
-      const v = part[1];
-      target.dataset[a] = v;
+      const name = part[0];
+      const value = part[1];
+      target.dataset[name] = value;
     }
   }
 })()

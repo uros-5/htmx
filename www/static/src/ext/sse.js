@@ -7,7 +7,7 @@ This extension adds support for Server Sent Events to htmx.  See /www/extensions
 
 (function() {
 
-	/** @type {import("../htmx").HtmxInternalApi} */
+	/** @type {import("../htmx").*} */
 	var api;
 
 	htmx.defineExtension("sse", {
@@ -15,7 +15,7 @@ This extension adds support for Server Sent Events to htmx.  See /www/extensions
 		/**
 		 * Init saves the provided reference to the internal HTMX API.
 		 * 
-		 * @param {import("../htmx").HtmxInternalApi} api 
+		 * @param {import("../htmx").*} api 
 		 * @returns void
 		 */
 		init: function(apiRef) {

@@ -96,7 +96,7 @@ return (function () {
             addSelector: addSelector
         };
 
-        /** @type {import("./htmx").HtmxInternalApi} */
+        /** @type {import("./htmx").*} */
         var internalAPI = {
             addTriggerHandler: addTriggerHandler,
             bodyContains: bodyContains,
