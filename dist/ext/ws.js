@@ -6,14 +6,14 @@ This extension adds support for WebSockets to htmx.  See /www/extensions/ws.md f
 
 (function () {
 
-	/** @type {import("../htmx").HtmxInternalApi} */
+	/** @type {import("../htmx").*} */
 	var api;
 
 	htmx.defineExtension("ws", {
 
 		/**
 		 * init is called once, when this extension is first registered.
-		 * @param {import("../htmx").HtmxInternalApi} apiRef
+		 * @param {import("../htmx").*} apiRef
 		 */
 		init: function (apiRef) {
 

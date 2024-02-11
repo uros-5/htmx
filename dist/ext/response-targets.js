@@ -1,6 +1,6 @@
 (function(){
 
-    /** @type {import("../htmx").HtmxInternalApi} */
+    /** @type {import("../htmx").*} */
     var api;
 
     var attrPrefix = 'hx-target-';
@@ -75,7 +75,7 @@
 
     htmx.defineExtension('response-targets', {
 
-        /** @param {import("../htmx").HtmxInternalApi} apiRef */
+        /** @param {import("../htmx").*} apiRef */
         init: function (apiRef) {
             api = apiRef;
 
