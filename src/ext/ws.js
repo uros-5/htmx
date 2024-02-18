@@ -6,17 +6,17 @@ This extension adds support for WebSockets to htmx.  See /www/extensions/ws.md f
 
 (function () {
 
-	/** @type {import("../htmx").HtmxInternalApi} */
+	/** @type {import("../htmx").*} */
 	var api;
 
 	htmx.defineExtension("ws", {
 
 		/**
 		 * init is called once, when this extension is first registered.
-		 * @param {import("../htmx").HtmxInternalApi} apiRef
+		 * @type {import("../htmx").*} apiRef
 		 */
 		init: function (apiRef) {
-
+			
 			// Store reference to internal API
 			api = apiRef;
 
@@ -121,6 +121,9 @@ This extension adds support for WebSockets to htmx.  See /www/extensions/ws.md f
 		var socketWrapper = createWebsocketWrapper(socketElt, function () {
 			return htmx.createWebSocket(wssSource)
 		});
+		socketWrapper.pingInterval = setInterval(() => {
+			socketWrapper.send("", socketElt);
+		}, 40 * 1000);
 
 		socketWrapper.addEventListener('message', function (event) {
 			if (maybeCloseWebSocketSource(socketElt)) {
@@ -352,7 +355,7 @@ This extension adds support for WebSockets to htmx.  See /www/extensions/ws.md f
 				var sendConfig = {
 					parameters: filteredParameters,
 					unfilteredParameters: allParameters,
-					headers: headers,
+					// headers: headers,
 					errors: errors,
 
 					triggeringEvent: evt,
@@ -372,8 +375,8 @@ This extension adds support for WebSockets to htmx.  See /www/extensions/ws.md f
 				var body = sendConfig.messageBody;
 				if (body === undefined) {
 					var toSend = Object.assign({}, sendConfig.parameters);
-					if (sendConfig.headers)
-						toSend['HEADERS'] = headers;
+					// if (sendConfig.headers)
+					// 	toSend['HEADERS'] = headers;
 					body = JSON.stringify(toSend);
 				}
 
@@ -399,8 +402,8 @@ This extension adds support for WebSockets to htmx.  See /www/extensions/ws.md f
 			return delay(retryCount);
 		}
 		if (delay === 'full-jitter') {
-			var exp = Math.min(retryCount, 6);
-			var maxDelay = 1000 * Math.pow(2, exp);
+			var exp = Math.min(retryCount, 10);
+			var maxDelay = 500 * Math.pow(2, exp);
 			return maxDelay * Math.random();
 		}
 
@@ -456,7 +459,6 @@ This extension adds support for WebSockets to htmx.  See /www/extensions/ws.md f
 		elt.querySelectorAll("[" + attributeName + "], [data-" + attributeName + "], [data-hx-ws], [hx-ws]").forEach(function (node) {
 			result.push(node)
 		})
-
 		return result
 	}
 
