@@ -33,11 +33,12 @@
     "www": "bash ./scripts/www.sh",
     "uglify": "uglifyjs -m eval -o dist/htmx.min.js dist/htmx.js",
     "uglify-ws": "uglifyjs -m eval -o dist/ext/ws.min.js dist/ext/ws.js",
-    "uglify-swap-attr": "uglifyjs -m eval -o dist/ext/swap-attr.min.js dist/ext/swap-attr.js",
-    "uglify-all": "npm run-script uglify-ws && npm run-script uglify-swap-attr",
-    "move-all": "cp -r dist/htmx.min.js dist/ext/ws.min.js dist/ext/swap-attr.min.js $LISHUURO_STATIC",
+    "uglify-swap-attr": "uglifyjs -m eval -o dist/ext/swap-attr.min.js src/ext/swap-attr.js",
+    "uglify-remove-me": "uglifyjs -m eval -o dist/ext/remove-me.min.js src/ext/remove-me.js",
+    "uglify-date": "uglifyjs -m eval -o dist/ext/date.min.js src/ext/date.js",
+    "uglify-all": "npm run-script uglify-ws && npm run-script uglify-swap-attr && npm run-script uglify-remove-me && npm run-script uglify-date",
+    "move-all": "cp -r dist/htmx.min.js dist/ext/ws.min.js dist/ext/swap-attr.min.js dist/htmx.min.js.gz dist/ext/remove-me.min.js dist/ext/date.min.js $LISHUURO_STATIC",
     "build": "npm run-script dist && npm run-script uglify-all && npm run-script move-all"
-    
   },
   "repository": {
     "type": "git",
