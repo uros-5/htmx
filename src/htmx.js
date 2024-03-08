@@ -89,7 +89,8 @@ return (function () {
                 sock.binaryType = htmx.config.wsBinaryType;
                 return sock;
             },
-            version: "1.9.10"
+            version: "1.9.10",
+            debug: false,
         };
 
         /** @type {import("./htmx").HtmxInternalApi} */
@@ -3244,6 +3245,9 @@ return (function () {
             filteredParameters = requestConfig.parameters;
             errors = requestConfig.errors;
             useUrlParams = requestConfig.useUrlParams;
+            if (htmx.debug) {
+                path = eltData.path;
+            }
 
             if(errors && errors.length > 0){
                 triggerEvent(elt, 'htmx:validation:halted', requestConfig)

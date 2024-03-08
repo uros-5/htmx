@@ -2,7 +2,7 @@
   htmx.defineExtension('swap-attr', {
     onEvent: function(name, evt) {
       if (name == "htmx:oobBeforeSwap") {
-        const target = evt.originalTarget;
+        const target = evt.detail.target;
         const fragment = evt.detail.fragment;
         if (target && fragment) {
           dataSwap(target, fragment)
@@ -15,7 +15,9 @@
   /*** 
   * @param {HTMLElement} target 
   * @param {HTMLElement} fragment 
-  ***/
+  * @description Example of hx-data-attr: ```attribute=value;;attribute=value;;```
+  *  
+  **/
   function dataSwap(target, fragment) {
     const attr = fragment.getAttribute("hx-data-attr");
     if (!attr) {
