@@ -58,7 +58,7 @@ To clarify the discussion around exactly what the uniform interface is, let's co
 everyone reading this will understand:
 
 ```html
-<html
+<html>
   <body>
   <section>
     <p>
@@ -91,7 +91,7 @@ Let's go through each of these in turn.
 #### Identification of Resources
 
 The first aspect of Rest is the idea of *resources* that are found somewhere via... well, [Universal Resource Locators](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL), or URLs.  Note that the HTML contains additional URLs for the actions that you can perform on this
-resource (`contacts/1`), following the conventional hierarchical arrangement of URL paths.
+resource (`contacts/42`), following the conventional hierarchical arrangement of URL paths.
 
 #### Manipulation of Resources Through Representations
 
@@ -239,7 +239,7 @@ These brief sections are not relevant to non-academics interested in REST.
 
 ## Summary
 
-So there you have it, a brief tour of Chapter 5 of Roy Fielding's disseration, which gave us the term REST.  I have
+So there you have it, a brief tour of Chapter 5 of Roy Fielding's dissertation, which gave us the term REST.  I have
 focused in on the areas that I think are most important for web developers to understand and tried to convey how
 REST describes the original web model.  The uniform interface concept is, in my opinion, the most important and interesting
 aspect of REST, and is useful for web developers to understand as it is primarily responsible for the benefits described

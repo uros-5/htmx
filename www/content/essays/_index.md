@@ -16,6 +16,7 @@ page_template = "essay.html"
 * [Taking HTML Seriously](https://intercoolerjs.org/2020/01/14/taking-html-seriously)
 * [REST Copypasta](@/essays/rest-copypasta.md)
 * [The #ViewSource Affordance](@/essays/right-click-view-source.md)
+* [Hypermedia Controls: Feral to Formal (ACM HT'24)](https://dl.acm.org/doi/pdf/10.1145/3648188.3675127)
 
 ### Why Hypermedia? Why Multi-Page Applications?
 * [Hypermedia On Whatever you'd Like (HOWL)](@/essays/hypermedia-on-whatever-youd-like.md)
@@ -36,6 +37,9 @@ page_template = "essay.html"
 * [Template Fragments](@/essays/template-fragments.md)
 * [View Transitions](@/essays/view-transitions.md)
 * [Model/View/Controller](@/essays/mvc.md)
+* [Is Rendering JSON More Efficient Than Rendering HTML?](https://github.com/1cg/html-json-speed-comparison)
+* [Is JSON Smaller Than HTML?](https://github.com/1cg/html-json-size-comparison)
+* [You Can't Build Interactive Web Apps Except as Single Page Applications... And Other Myths](@/essays/you-cant.md)
 
 ### Complexity Very Very Bad
 * [The Grug Brained Developer](https://grugbrain.dev)
@@ -44,6 +48,19 @@ page_template = "essay.html"
 * [Why htmx Does Not Have a Build Step](@/essays/no-build-step.md)
 * [Is htmx Just Another JavaScript Framework?](@/essays/is-htmx-another-javascript-framework.md)
 * [htmx Implementation Deep Dive (Video)](https://www.youtube.com/watch?v=javGxN-h9VQ)
+
+### On The Other Hand...
+* [htmx sucks](@/essays/htmx-sucks.md)
+* [Why Gumroad Didn't Choose htmx](@/essays/why-gumroad-didnt-choose-htmx.md)
+
+### Hypermedia History
+
+* [A File Structure For The Complex, The Changing and the Indeterminate (Ted Nelson, 1965)](https://dl.acm.org/doi/pdf/10.1145/800197.806036)
+* [The Mother Of All Demos (Doug Englebart, 1968)](https://www.youtube.com/watch?v=B6rKUf9DWRI)
+* [The First Web Page (1991)](http://info.cern.ch/hypertext/WWW/TheProject.html)
+* [Architectural Styles and the Design of Network-based Software Architectures (Roy Fielding, 2000)](https://ics.uci.edu/~fielding/pubs/dissertation/top.htm)
+* [State of the Art Review on Hypermedia Issues and Applications (2006)](https://paul.luon.net/hypermedia/index.html) [[archive]](https://web.archive.org/web/20240428215142/https://paul.luon.net/hypermedia/index.html)
+* [Interview: Henning Koch, Creator of Unpoly](@/essays/interviews/henning_koch.md)
 
 ## Banners
 <div style="text-align: center;margin:32px">
